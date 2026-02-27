@@ -1,0 +1,3 @@
+colocar o arquivo "docker-compose.yml" 
+depois colar no terminal:docker compose up -d
+depois colar no terminal:docker compose exec app bash
