@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/w64devkit/include",
+                "C:/w64devkit/lib/gcc/x86_64-w64-mingw32/15.2.0/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/w64devkit/bin/gcc.exe"
+        }
+    ],
+    "version": 4
+}
