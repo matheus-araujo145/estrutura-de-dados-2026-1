@@ -1,6 +1,6 @@
 colocar o arquivo "docker-compose.yml" 
-depois colar no terminal:docker compose up -d
-depois colar no terminal:docker compose exec app bash
-Se quiser parar o gcc:git compose down
-Para rodar de novo:docker compose up -d
-E depois:git compose exec app bash
+depois colar no terminal: docker compose up -d
+depois colar no terminal: docker compose exec app bash
+Se quiser parar o gcc: git compose down
+Para rodar de novo: docker compose up -d
+E depois: docker compose exec app bash
