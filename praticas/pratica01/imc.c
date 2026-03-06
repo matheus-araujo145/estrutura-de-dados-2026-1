@@ -7,21 +7,21 @@ float indice(int peso,float altura){
     float imc = peso / (altura * altura);
     if (imc < 18.5)
     {
-        printf("Condição: Abaixo do peso");
+        printf("Condicao: Abaixo do peso");
     }
     
     else if (imc >= 18.5 && imc <= 24.9 )
     {
-        printf("Condição: Peso normal");
+        printf("Condicao: Peso normal");
     }
 
     else if (imc >= 25 && imc <= 29.9)
     {
-        printf("Condição: Sobrepeso");
+        printf("Condicao: Sobrepeso");
     }
 
     else{
-        printf("Condição: Obesidade");
+        printf("Condicao: Obesidade");
     }
 }
 
