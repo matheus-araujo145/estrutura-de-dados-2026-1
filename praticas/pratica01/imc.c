@@ -1,8 +1,16 @@
 #include <stdio.h>
-float indice(int peso,float altura){
+void indice(){
+
+    int peso;
+    float altura;
+    printf("Digite o peso: ");
+    scanf("%d", &peso);
+    printf("Digite a altura: ");
+    scanf("%f", &altura);
+
     if (peso <= 0 || altura <= 0)
     {
-        return 0;
+        return;
     }
     float imc = peso / (altura * altura);
     if (imc < 18.5)
@@ -25,7 +33,8 @@ float indice(int peso,float altura){
     }
 }
 
-int main(int argc, char const *argv[]){
-    indice(70, 1.75);
+int main(){
+    
+    indice();
     return 0;
 }
