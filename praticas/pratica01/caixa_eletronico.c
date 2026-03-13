@@ -1,10 +1,6 @@
 #include <stdio.h>
 
-int caixa_eletronico(){
-
-    int valor;
-    printf("Valor a ser sacado: ");
-    scanf("%d", &valor);
+int caixa_eletronico(int valor){
 
     if (valor > 1000 || valor <= 0)
     {
@@ -18,6 +14,7 @@ int caixa_eletronico(){
     int nota10 = 0;
     int nota5 = 0;
     int nota2 = 0;
+
     while (valor >= 2)
     {
         if (valor >= 200)
@@ -56,19 +53,31 @@ int caixa_eletronico(){
             valor -= 2;
         }
     }
-    printf("Foram necessarias:\n");
-    printf("%d notas de 200: \n", nota200);
-    printf("%d notas de 100: \n", nota100);
-    printf("%d notas de 50: \n", nota50);
-    printf("%d notas de 20: \n", nota20);
-    printf("%d notas de 10: \n", nota10);
-    printf("%d notas de 5: \n", nota5);
-    printf("%d notas de 2: \n", nota2);
-    printf("Total de notas: %d\n", nota200 + nota100 + nota50 + nota20 + nota10 + nota5 + nota2);
+
+    return nota200 + nota100 + nota50 + nota20 + nota10 + nota5 + nota2;
 }
 
-int main()
-{
-    caixa_eletronico();
+int main(){
+
+    int notas = 0;
+
+    notas = caixa_eletronico(-50); // valor < 0
+    printf("Valor = -50 => %i\n", notas == 0);
+
+    notas = caixa_eletronico(0); // valor == 0
+    printf("Valor = 0 => %i\n", notas == 0);
+
+    notas = caixa_eletronico(1500); // valor > 1000
+    printf("Valor = 1500 => %i\n", notas == 0);
+
+    notas = caixa_eletronico(200); // 1 nota
+    printf("Valor = 200 -> Notas = %d => %i\n", notas, notas == 1);
+
+    notas = caixa_eletronico(380); // 200+100+50+20+10
+    printf("Valor = 380 -> Notas = %d => %i\n", notas, notas == 5);
+
+    notas = caixa_eletronico(7); // 5+2
+    printf("Valor = 7 -> Notas = %d => %i\n", notas, notas == 2);
+
     return 0;
 }
