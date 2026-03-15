@@ -1,83 +1,100 @@
 #include <stdio.h>
 
-int caixa_eletronico(int valor){
+struct Saque {
+    int nota200;
+    int nota100;
+    int nota50;
+    int nota20;
+    int nota10;
+    int nota5;
+    int nota2;
+};
+
+struct Saque caixa_eletronico(int valor){
+
+    struct Saque resultado = {0,0,0,0,0,0,0};
 
     if (valor > 1000 || valor <= 0)
     {
-        return 0;
+        return resultado;
     }
-
-    int nota200 = 0;
-    int nota100 = 0;
-    int nota50 = 0;
-    int nota20 = 0;
-    int nota10 = 0;
-    int nota5 = 0;
-    int nota2 = 0;
 
     while (valor >= 2)
     {
         if (valor >= 200)
         {
-            nota200++;
+            resultado.nota200++;
             valor -= 200;
         }
         else if (valor >= 100)
         {
-            nota100++;
+            resultado.nota100++;
             valor -= 100;
         }
         else if (valor >= 50)
         {
-            nota50++;
+            resultado.nota50++;
             valor -= 50;
         }
         else if (valor >= 20)
         {
-            nota20++;
+            resultado.nota20++;
             valor -= 20;
         }
         else if (valor >= 10)
         {
-            nota10++;
+            resultado.nota10++;
             valor -= 10;
         }
         else if (valor >= 5)
         {
-            nota5++;
+            resultado.nota5++;
             valor -= 5;
         }
-        else if (valor >= 2)
+        else
         {
-            nota2++;
+            resultado.nota2++;
             valor -= 2;
         }
     }
 
-    return nota200 + nota100 + nota50 + nota20 + nota10 + nota5 + nota2;
+    return resultado;
 }
 
 int main(){
 
-    int notas = 0;
+    struct Saque valor;
 
-    notas = caixa_eletronico(-50); // valor < 0
-    printf("Valor = -50 => %i\n", notas == 0);
+    valor = caixa_eletronico(-1000); //Teste com valor < 0
 
-    notas = caixa_eletronico(0); // valor == 0
-    printf("Valor = 0 => %i\n", notas == 0);
+    printf("Teste com valor < 0\n");
+    printf("200: %d\n", valor.nota200);
+    printf("100: %d\n", valor.nota100);
+    printf("50: %d\n", valor.nota50);
+    printf("20: %d\n", valor.nota20);
+    printf("10: %d\n", valor.nota10);
+    printf("5: %d\n", valor.nota5);
+    printf("2: %d\n", valor.nota2);
 
-    notas = caixa_eletronico(1500); // valor > 1000
-    printf("Valor = 1500 => %i\n", notas == 0);
+    valor = caixa_eletronico(1234); //Teste com valor > 1000
+    printf("Teste com valor > 1000 (1234):\n");
+    printf("200: %d\n", valor.nota200);
+    printf("100: %d\n", valor.nota100);
+    printf("50: %d\n", valor.nota50);
+    printf("20: %d\n", valor.nota20);
+    printf("10: %d\n", valor.nota10);
+    printf("5: %d\n", valor.nota5);
+    printf("2: %d\n", valor.nota2);
 
-    notas = caixa_eletronico(200); // 1 nota
-    printf("Valor = 200 -> Notas = %d => %i\n", notas, notas == 1);
-
-    notas = caixa_eletronico(380); // 200+100+50+20+10
-    printf("Valor = 380 -> Notas = %d => %i\n", notas, notas == 5);
-
-    notas = caixa_eletronico(7); // 5+2
-    printf("Valor = 7 -> Notas = %d => %i\n", notas, notas == 2);
+    valor = caixa_eletronico(786); //Teste com valor válido
+    printf("Teste com valor válido (786):\n");
+    printf("200: %d\n", valor.nota200);
+    printf("100: %d\n", valor.nota100);
+    printf("50: %d\n", valor.nota50);
+    printf("20: %d\n", valor.nota20);
+    printf("10: %d\n", valor.nota10);
+    printf("5: %d\n", valor.nota5);
+    printf("2: %d\n", valor.nota2);
 
     return 0;
 }
