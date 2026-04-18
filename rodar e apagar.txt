@@ -1,2 +1,0 @@
-Rodar os programas apangando o .exe depois:
-gcc programa.c -o programa && ./programa && rm programa
