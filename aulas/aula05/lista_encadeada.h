@@ -1,5 +1,5 @@
-#ifndef LISTA_ENCADEADA_H
-#define LISTA_ENCADEADA_H
+#ifndef lista_encadeada_h
+#define lista_encadeada_h
 
 typedef struct {
     int dado;

@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include "lista_encadeada.h"
 
-ListaEncadeada *criar() 
-{
+ListaEncadeada *criar(){
+
     ListaEncadeada *lista = (ListaEncadeada *) malloc(sizeof(ListaEncadeada));
 
-    if(lista != NULL) 
-    {
+    if(lista != NULL){
+
         lista->primeiro = NULL;
         lista->ultimo = NULL;
         lista->quantidade = 0;
@@ -16,18 +16,18 @@ ListaEncadeada *criar()
     return lista;
 }
 
-void destruir(ListaEncadeada *lista) 
-{
+void destruir(ListaEncadeada *lista){
+
     free(lista); //só apaga o descritor da lista
 }
 
-int lista_vazia(ListaEncadeada *lista) 
-{
+int lista_vazia(ListaEncadeada *lista){
+
     return lista != NULL && lista->primeiro == NULL;
 }
 
-void adicionar_final(ListaEncadeada *lista, int valor) 
-{
+void adicionar_final(ListaEncadeada *lista, int valor){
+
     No *no = (No *) malloc(sizeof(No));
 
     if(no == NULL)
@@ -36,9 +36,11 @@ void adicionar_final(ListaEncadeada *lista, int valor)
     no->dado = valor;
     no->proximo = NULL;
 
-    if(lista_vazia(lista)) {
+    if(lista_vazia(lista)){
+
         lista->primeiro = no;
     } else {
+
         lista->ultimo->proximo = no;
     }
 
@@ -46,16 +48,16 @@ void adicionar_final(ListaEncadeada *lista, int valor)
     lista->quantidade++;
 }
 
-No *buscar(ListaEncadeada *lista, int valor) 
-{
+No *buscar(ListaEncadeada *lista, int valor){
+
     if(lista_vazia(lista))
         return NULL;
 
     int posicao = 1;
 
     No *no =  lista->primeiro; 
-    while(no != NULL) 
-    {
+    while(no != NULL){
+        
         if(no->dado == valor)
             return no;
         no = no->proximo;
